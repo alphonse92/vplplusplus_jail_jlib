@@ -10,6 +10,10 @@ Implementation of JLib in VPL plus plus jail
 
 # Run
 
+**You need to run the container with privilegies and ALL capabilities**
+
+`docker run -p 8888:8888 -e JAIL_PORT=8888  -e JAIL_SECURE_PORT=4433 --cap-add=ALL --privileged=true alphonse92/vpl-jail-execution-vpl-jlib-runner `
+
 ## Environment variables
 
 1. ENV: environment set the development environment. By **default** is 'development`.  The development environment will output all iformation. The production environment only will show the percentage of tests that was passed.
