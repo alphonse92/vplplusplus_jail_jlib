@@ -12,7 +12,7 @@ echo 'UFPS' >> /usr/bin/vpl
 echo "#!/bin/bash"  >> /usr/bin/vpl_run
 echo 'echo "Running class."'   >> /usr/bin/vpl_run
 echo 'echo ""'  >> /usr/bin/vpl_run
-echo 'java -jar /usr/bin/VPLPlusPlus-jlib.jar -f $1'  >> /usr/bin/vpl_run
+echo 'javac -cp "/usr/bin/VPLPlusPlus-jlib.jar" $1*.java' >> /usr/bin/vpl_run
 echo 'echo ""'  >> /usr/bin/vpl_run
 echo 'echo "End of class execution."'  >> /usr/bin/vpl_run
 echo 'Did you not see the output? Make sure there is a main class.'  >> /usr/bin/vpl_run
