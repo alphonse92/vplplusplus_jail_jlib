@@ -13,6 +13,13 @@ echo "#!/bin/bash"  >> /usr/bin/vpl_run
 echo 'echo "Running class."'   >> /usr/bin/vpl_run
 echo 'echo ""'  >> /usr/bin/vpl_run
 echo 'javac -cp "/usr/bin/VPLPlusPlus-jlib.jar" $1*.java' >> /usr/bin/vpl_run
+
+echo 'if test -f "main.class"; then' >> /usr/bin/vpl_run
+echo '    java -cp . main' >> /usr/bin/vpl_run
+echo 'else' >> /usr/bin/vpl_run
+echo '    echo "Main class not found"' >> /usr/bin/vpl_run
+echo 'fi' >> /usr/bin/vpl_run
+
 echo 'echo ""'  >> /usr/bin/vpl_run
 echo 'echo "End of class execution."'  >> /usr/bin/vpl_run
 echo 'echo "Did you not see the output? Make sure there is a main class."'  >> /usr/bin/vpl_run
