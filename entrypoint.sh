@@ -1,4 +1,5 @@
 #!/bin/bash
+rm -rf /usr/bin/vpl
 echo "#!/bin/bash"  >> /usr/bin/vpl
 echo "export ENV=${ENV}" >> /usr/bin/vpl
 echo "export API_URL=${API_URL}" >> /usr/bin/vpl
@@ -11,6 +12,7 @@ echo 'echo ""' >> /usr/bin/vpl
 echo 'echo "Test Script - Vpl ++ Jlib runner V.1.0.0"'  >> /usr/bin/vpl
 echo 'echo "Ingeniería de Sistemas - UFPS"'  >> /usr/bin/vpl
 #Create script to run the test, adding to the claspath the jlib to get no errors
+rm -rf /usr/bin/vpl_run
 echo "#!/bin/bash"  >> /usr/bin/vpl_run
 echo 'echo "Running class."'   >> /usr/bin/vpl_run
 echo 'echo ""'  >> /usr/bin/vpl_run
