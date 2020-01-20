@@ -1,6 +1,7 @@
 #!/bin/bash
 rm -rf /usr/bin/vpl
 echo "#!/bin/bash"  >> /usr/bin/vpl
+echo "export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8"  >> /usr/bin/vpl
 echo "export ENV=${ENV}" >> /usr/bin/vpl
 echo "export API_URL=${API_URL}" >> /usr/bin/vpl
 echo "export API_TOKEN=${API_TOKEN}" >> /usr/bin/vpl
@@ -14,6 +15,7 @@ echo 'echo "Ingeniería de Sistemas - UFPS"'  >> /usr/bin/vpl
 #Create script to run the test, adding to the claspath the jlib to get no errors
 rm -rf /usr/bin/vpl_run
 echo "#!/bin/bash"  >> /usr/bin/vpl_run
+echo "export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8"  >> /usr/bin/vpl_run
 echo 'echo "Running class."'   >> /usr/bin/vpl_run
 echo 'echo ""'  >> /usr/bin/vpl_run
 echo 'javac -cp "/usr/bin/VPLPlusPlus-jlib.jar" $1*.java' >> /usr/bin/vpl_run
