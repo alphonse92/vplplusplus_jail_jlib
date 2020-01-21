@@ -8,7 +8,7 @@ echo "export API_URL=${API_URL}" >> /usr/bin/vpl
 echo "export API_TOKEN=${API_TOKEN}" >> /usr/bin/vpl
 echo 'echo "Testing class."'   >> /usr/bin/vpl
 echo 'echo ""' >> /usr/bin/vpl
-echo 'javac -nowarn -encoding UTF-8 -cp "/usr/bin/VPLPlusPlus-jlib.jar" $1*.java '  >> /usr/bin/vpl
+echo 'javac -nowarn -encoding UTF-8 -cp "/usr/bin/VPLPlusPlus-jlib.jar" $1*.java  || export COMPILATION_ERROR=true'  >> /usr/bin/vpl
 echo 'java -jar /usr/bin/VPLPlusPlus-jlib.jar -f $1' >> /usr/bin/vpl
 echo 'echo ""' >> /usr/bin/vpl
 echo 'echo "Test Script - Vpl ++ Jlib runner V.1.0.0"'  >> /usr/bin/vpl
@@ -20,7 +20,7 @@ rm -rf /usr/bin/vpl_run
 echo "#!/bin/bash"  >> /usr/bin/vpl_run
 echo 'echo "Running class."'   >> /usr/bin/vpl_run
 echo 'echo ""'  >> /usr/bin/vpl_run
-echo 'javac -nowarn -encoding UTF-8  -cp "/usr/bin/VPLPlusPlus-jlib.jar" $1*.java' >> /usr/bin/vpl_run
+echo 'javac -nowarn -encoding UTF-8  -cp "/usr/bin/VPLPlusPlus-jlib.jar" $1*.java || export COMPILATION_ERROR=true' >> /usr/bin/vpl_run
 
 echo 'if test -f "main.class"; then' >> /usr/bin/vpl_run
 echo '    java -cp . main' >> /usr/bin/vpl_run
