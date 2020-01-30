@@ -1,0 +1,26 @@
+#!/bin/bash 
+
+echo "Running Vpl ++ Evaluate Script - Vpl ++ Jlib runner V.1.0.0"
+echo "Ingeniería de Sistemas - UFPS"
+
+## Writte the vpl_execution program
+echo "#!/bin/bash" >> $1/vpl_execution
+
+## Set Variables
+echo ". /usr/bin/vplplusplus_environment" >> $1/vpl_execution
+
+## Set environment variables from moodle
+echo ". vpl_environment.sh" >> $1/vpl_execution
+
+## Compiing the classes
+echo "javac -nowarn -encoding UTF-8  -cp "/usr/bin/VPLPlusPlus-jlib.jar" $1/*.java  || export COMPILATION_ERROR=true" >> $1/vpl_execution
+
+## Remove the java files 
+echo "rm -rf $1/*.java"  >> $1/vpl_execution
+
+## Execute the runner
+export VPL_PLUS_PLUS_PROJECT_ID=$2
+echo "java -jar /usr/bin/VPLPlusPlus-jlib.jar -f $1" >> $1/vpl_execution
+
+## Make executable vpl_execution
+chmod +x  $1/vpl_execution
