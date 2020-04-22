@@ -21,6 +21,8 @@ This microservice installs [VPL ++ JLib](https://github.com/alphonse92/vplpluspl
 3. API_TOKEN:  client JWT token for Vpl Jlib, see the administrator guide for the VPL api.
 4. JAIL_PORT: Jail port
 5. JAIL_SECURE_PORT: jail secure port
+6. CACERT: path to your ca-certificate, to request to your own servers behind of SSL
+7. HOST_FILE: path to a custom hosts file. This hosts file is used to resolve DNS internally by the prissioners proccess. If you dont provide it, the executions will never resolve domains e.g. google.com. This file is like /etc/hosts files in unix systems.
 
 **example**
 
