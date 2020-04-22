@@ -6,18 +6,16 @@ echo "Ingeniería de Sistemas - UFPS"
 ## Writte the vpl_execution program
 echo "#!/bin/bash" >> $1/vpl_execution
 
-## Compiling the classes
-echo "javac -nowarn -encoding UTF-8  -cp "/usr/bin/VPLPlusPlus-jlib.jar" $1/*.java" >> $1/vpl_execution
-
-## Remove the java files 
-echo "rm -rf $1/*.java"  >> $1/vpl_execution
+## Set environment variables from moodle
+echo ". $1/vpl_environment.sh" >> $1/vpl_execution
 
 ## Execute the just java
-echo 'if test -f "main.class"; then' >> $1/vpl_execution
-echo '    java main'>> $1/vpl_execution
+echo 'if test -f "main.java"; then' >> $1/vpl_execution
+echo "    javac -nowarn -encoding UTF-8  -cp /usr/bin/VPLPlusPlus-jlib.jar -sourcepath $1 \$VPL_SUBFILES  " >> $1/vpl_execution
+echo '    java main' >> $1/vpl_execution
 echo 'else' >> $1/vpl_execution
-echo '    echo "Main class not found (main.java)"' >> $1/vpl_execution
+echo '    echo "main.java not found"' >> $1/vpl_execution
 echo 'fi' >> $1/vpl_execution
 
 ## Make executable vpl_execution
-chmod +x $1/vpl_execution
+chmod +x  $1/vpl_execution
